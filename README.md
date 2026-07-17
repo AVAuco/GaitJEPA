@@ -12,11 +12,11 @@ The paper has been accepted for publication at the **2026 IEEE International Joi
   <img src="assets/gaitjepa_teaser.png" alt="GaitJEPA teaser: self-supervised pretraining from unlabeled silhouettes for downstream gait tasks" width="720">
 </p>
 
-## Overview
+## 🔎 Overview
 
 GaitJEPA studies how far JEPA-style predictive self-supervision can go for gait recognition when the input is restricted to binary silhouette sequences. The model learns from unlabeled walking videos by predicting masked and future latent representations, avoiding identity labels, pixel reconstruction, and contrastive negative pairs during pretraining.
 
-## Method Overview
+## 🧠 Method Overview
 
 GaitJEPA follows a non-contrastive self-supervised design built around a DeepGaitV2-style encoder. During pretraining, the model receives binary silhouette clips and learns part-aware latent representations through three complementary objectives:
 
@@ -26,7 +26,7 @@ GaitJEPA follows a non-contrastive self-supervised design built around a DeepGai
 
 The resulting pretrained encoder is then adapted to downstream gait tasks with limited labeled data.
 
-## Highlights
+## ✨ Highlights
 
 - **Self-supervised gait pretraining from binary silhouettes**, without identity labels, pixel reconstruction, or contrastive negative pairs.
 - **JEPA-style predictive learning for gait**, combining masked latent prediction, future-latent dynamics, and latent regularization.
@@ -35,7 +35,7 @@ The resulting pretrained encoder is then adapted to downstream gait tasks with l
 - **Label-efficient initialization**: GaitJEPA improves over training from scratch once a modest amount of labeled downstream data is available.
 - **Honest scope**: the pretrained representation organizes viewpoint, walking direction, and temporal progression, but is not claimed as a final identity-discriminative foundation model.
 
-## Datasets & Tasks
+## 🗂️ Datasets & Tasks
 
 | Stage | Dataset | Role | Task |
 |---|---|---|---|
@@ -44,7 +44,7 @@ The resulting pretrained encoder is then adapted to downstream gait tasks with l
 | Evaluation | OU-MVLP | Large-scale multi-view gait benchmark | Low-label person identification and sex classification |
 | Evaluation | Health&Gait | Clinical gait-oriented dataset | Low-label person identification and sex classification |
 
-## Selected Results
+## 📊 Selected Results
 
 | Setting | Best observed gain over scratch | Takeaway |
 |---|---:|---|
@@ -53,17 +53,17 @@ The resulting pretrained encoder is then adapted to downstream gait tasks with l
 | OU-MVLP identification | +13.41 Rank-1 | Benefits emerge with modest supervised adaptation |
 | Health&Gait sex classification | +35.27 Balanced Acc. | Strong transfer to soft-biometric prediction |
 
-## Code
+## 🚧 Code
 
 The source code, pretrained models, configuration files, and instructions for reproducing the experiments will be made available soon.
 
 Thank you for your interest in our work.
 
-## Contact
+## 📬 Contact
 
 For questions about the paper or academic collaborations, please contact the authors at [https://www.uco.es/investiga/grupos/ava/members/](https://www.uco.es/investiga/grupos/ava/members/).
 
-## Citation
+## 📚 Citation
 
 ```bibtex
 @inproceedings{gaitjepa2026,
