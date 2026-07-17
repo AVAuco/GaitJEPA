@@ -16,6 +16,16 @@ The paper has been accepted for publication at the **2026 IEEE International Joi
 
 GaitJEPA studies how far JEPA-style predictive self-supervision can go for gait recognition when the input is restricted to binary silhouette sequences. The model learns from unlabeled walking videos by predicting masked and future latent representations, avoiding identity labels, pixel reconstruction, and contrastive negative pairs during pretraining.
 
+## Method Overview
+
+GaitJEPA follows a non-contrastive self-supervised design built around a DeepGaitV2-style encoder. During pretraining, the model receives binary silhouette clips and learns part-aware latent representations through three complementary objectives:
+
+- **Masked latent prediction**: predicts missing frame-part latent tokens from visible context, encouraging spatial and temporal abstraction without reconstructing pixels.
+- **Future-latent dynamics**: predicts future latent states from the current sequence, preserving the temporal evolution of gait.
+- **Latent regularization**: stabilizes the learned dynamics space and helps avoid degenerate representation geometry.
+
+The resulting pretrained encoder is then adapted to downstream gait tasks with limited labeled data.
+
 ## Highlights
 
 - **Self-supervised gait pretraining from binary silhouettes**, without identity labels, pixel reconstruction, or contrastive negative pairs.
@@ -24,6 +34,15 @@ GaitJEPA studies how far JEPA-style predictive self-supervision can go for gait 
 - **Evaluated across CASIA-B, OU-MVLP, and Health&Gait** for low-label person identification and sex classification.
 - **Label-efficient initialization**: GaitJEPA improves over training from scratch once a modest amount of labeled downstream data is available.
 - **Honest scope**: the pretrained representation organizes viewpoint, walking direction, and temporal progression, but is not claimed as a final identity-discriminative foundation model.
+
+## Datasets & Tasks
+
+| Stage | Dataset | Role | Task |
+|---|---|---|---|
+| Pretraining | GaitLU-1M | Unlabeled large-scale gait data | Self-supervised representation learning |
+| Evaluation | CASIA-B | Controlled multi-view gait benchmark | Low-label person identification and sex classification |
+| Evaluation | OU-MVLP | Large-scale multi-view gait benchmark | Low-label person identification and sex classification |
+| Evaluation | Health&Gait | Clinical gait-oriented dataset | Low-label person identification and sex classification |
 
 ## Selected Results
 
@@ -39,6 +58,10 @@ GaitJEPA studies how far JEPA-style predictive self-supervision can go for gait 
 The source code, pretrained models, configuration files, and instructions for reproducing the experiments will be made available soon.
 
 Thank you for your interest in our work.
+
+## Contact
+
+For questions about the paper or academic collaborations, please contact the authors at [https://www.uco.es/investiga/grupos/ava/members/](https://www.uco.es/investiga/grupos/ava/members/).
 
 ## Citation
 
