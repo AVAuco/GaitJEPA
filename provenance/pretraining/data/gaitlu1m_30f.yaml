@@ -1,0 +1,12 @@
+dataset_name: "gaitlu1m"
+path: "/opt5/data/datasets/GaitLU1M/anonymized_sil"
+modalities: ["silhouette"]
+resolution: [64, 44]
+clip_length: 16
+min_required_frames: 16
+sampling:
+  type: "fixed_ordered"
+  frames_num_fixed: 30
+  frames_skip_num: 4
+manifest_train: "data/manifests/gaitlu1m_train_30f.json"
+manifest_val: "data/manifests/gaitlu1m_val_30f.json"

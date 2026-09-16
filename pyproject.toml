@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gaitjepa"
+version = "0.1.0"
+description = "GaitJEPA: Self-Supervised Gait Representation Learning (IJCB 2026 Release)"
+readme = "README.md"
+authors = [
+    { name = "Manuel J. Marin-Jimenez" },
+    { name = "Isabel Jimenez-Velasco" },
+    { name = "Rafael Munoz-Salinas" }
+]
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+dependencies = [
+    "torch>=2.0.0"
+]
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://github.com/AVAuco/gaitjepa"
+Repository = "https://github.com/AVAuco/gaitjepa"
+
+[project.optional-dependencies]
+data = [
+    "numpy>=1.22.0",
+    "pillow>=9.0.0"
+]
+test = [
+    "pytest>=7.0.0"
+]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["gaitjepa*"]

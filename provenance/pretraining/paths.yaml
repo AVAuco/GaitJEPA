@@ -1,0 +1,8 @@
+# Dataset paths
+data_dir: "data/"
+
+# Output paths
+output_dir: "outputs/"
+checkpoint_dir: "outputs/checkpoints/"
+log_dir: "outputs/logs/"
+manifest_dir: "${data_dir}/manifests/"

@@ -1,0 +1,98 @@
+defaults:
+  - data: gaitlu1m_30f
+  - model: gaitjepa_base
+  - masking: multiblock
+  - schedule: pretrain_wcd
+  - paths
+
+exp_name: "gaitjepa_pretrain_36_deepgaitv2_hybrid_gaitlu1m_30f"
+use_tensorboard: true
+batch_size: 16
+amp: false
+amp_dtype: "float32"
+
+data:
+  clip_length: 30
+  sampling:
+    type: "fixed_ordered"
+    frames_num_fixed: 30
+    frames_skip_num: 4
+    temporal_offset: 1
+    temporal_wrap: true
+    predict_horizon: 1
+
+pretrain:
+  view_mode: "hybrid_jepa_lewm"
+  identity_balanced_sampling: true
+
+model:
+  type: "deepgaitv2_hybrid"
+  encoder:
+    in_ch: 1
+    backbone_mode: "p3d"
+    layers: [1, 1, 1, 1]
+    channels: [64, 128, 256, 512]
+    hpp_bins: [16]
+    embed_dim: 256
+    separate_fcs_out_dim: 256
+    temporal_pool: "max"
+    max_frames: 64
+  predictor:
+    embed_dim: 512
+    depth: 2
+    num_heads: 4
+    dim_head: 32
+    mlp_dim: 1024
+    dropout: 0.0
+    emb_dropout: 0.0
+  dynamics:
+    horizon: 1
+    predictor_hidden_dim: 384
+    projector_hidden_dim: 512
+  ema:
+    decay: 0.996
+    final_decay: 0.999
+    anneal: "cosine"
+  loss:
+    type: "smooth_l1"
+    lewm_type: "smooth_l1"
+    jepa_weight: 1.0
+    lewm_weight: 1.0
+    sigreg_weight: 0.01
+    sigreg_on: "encoder"
+    sigreg_knots: 17
+    sigreg_num_proj: 256
+    regularization:
+      var_weight: 0.0
+      cov_weight: 0.0
+      norm_weight: 0.0
+      target_std: 1.0
+      target_norm: 1.0
+
+clip_grad_norm: 0.3
+
+schedule:
+  type: "warmup_cosine"
+  epochs: 500
+  base_lr: 1e-5
+  min_lr: 1e-6
+  warmup_epochs: 20
+
+validation:
+  umap:
+    enabled: true
+    every_n_epochs: 2
+    max_samples: 1024
+    normalize_embeddings: true
+    n_neighbors: 30
+    min_dist: 0.1
+    metric: "cosine"
+    random_state: 42
+    max_sequences_overlay: 15
+    points_per_seq: 80
+    draw_lines: true
+    save_npz: true
+    save_plots: true
+    log_to_tensorboard: true
+    dpi: 150
+    output_dir: "outputs/logs/gaitjepa_pretrain_36_deepgaitv2_hybrid_gaitlu1m_30f/pretrain/umap"

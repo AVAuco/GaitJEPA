@@ -1,0 +1,53 @@
+{
+  "source_checkpoint": {
+    "path": "outputs/checkpoints/gaitjepa_pretrain_36_deepgaitv2_hybrid_gaitlu1m_30f/epoch_0050.pth",
+    "sha256": "76824736c5fddb41cd47dec30bc2dad69e6c5cc5b5dd272f9640699b40d62f49",
+    "size_bytes": 153190525,
+    "experiment": "gaitjepa_pretrain_36_deepgaitv2_hybrid_gaitlu1m_30f",
+    "epoch": 50
+  },
+  "derived_inference_artifact": {
+    "path": "weights/gaitjepa_ijcb2026_encoder.pth",
+    "sha256": "2b90c9adc7167bd7f9f3d238b7df6b6f52182f0fac6d2cd91ec484874d13d665",
+    "size_bytes": 32704096,
+    "format_version": "1.0",
+    "tensor_count": 95
+  },
+  "provenance_metadata": {
+    "git_commit": "55ac0e245bf927d104e9ef85b9121f38d2633eed",
+    "has_uncommitted_changes": true,
+    "key_selection_rule": "Select keys starting with 'online_encoder.', strip prefix",
+    "excluded_modules": [
+      "optimizer",
+      "scheduler",
+      "scaler",
+      "target_encoder",
+      "jepa_predictor",
+      "dynamics_predictor",
+      "projector",
+      "pred_proj",
+      "sigreg"
+    ],
+    "software_versions": {
+      "torch": "2.10.0+cu128",
+      "python": "3.10.19"
+    },
+    "paper_vs_checkpoint_differences": {
+      "schedule_epochs": {
+        "checkpoint_config": 500,
+        "paper_description": 50,
+        "selected_epoch": 50,
+        "note": "The saved configuration in the checkpoint specifies a 500-epoch schedule. The paper describes 50 epochs."
+      },
+      "frame_stride": {
+        "checkpoint_config": "frames_skip_num: 4 (1 selected frame every 5 raw frames)",
+        "paper_description": "consecutive frames"
+      },
+      "umap_validation": {
+        "checkpoint_config": "absent",
+        "archived_yaml": "present in configs/gaitjepa_ijcb2026/",
+        "note": "The archived YAML includes a UMAP validation block absent from the stored checkpoint configuration."
+      }
+    }
+  }
+}

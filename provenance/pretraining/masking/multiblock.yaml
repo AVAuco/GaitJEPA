@@ -1,0 +1,20 @@
+strategy: "tube" # options: tube, multiblock, temporal, part_aware
+
+# Target blocks
+num_target_blocks: 4
+target_aspect_ratio: [0.75, 1.5]
+target_scale: [0.15, 0.2]
+
+# Context blocks
+num_context_blocks: 1
+context_aspect_ratio: [0.75, 1.5]
+context_scale: [0.85, 1.0]
+
+# Masking behavior
+allow_overlap: false
+per_sample: false
+
+# Part-aware masking
+num_parts: 4
+part_mix_policy: "uniform"
+ensure_part_coverage: true

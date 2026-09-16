@@ -1,0 +1,34 @@
+name: "gaitjepa_base"
+encoder:
+  type: "vit"
+  patch_size: [2, 8, 8]  # t, h, w
+  embed_dim: 768
+  depth: 12
+  num_heads: 12
+  mlp_ratio: 4.0
+  qkv_bias: true
+  drop_rate: 0.1
+predictor:
+  type: "vit"
+  embed_dim: 384
+  depth: 6
+  num_heads: 6
+  mlp_ratio: 4.0
+  qkv_bias: true
+  drop_rate: 0.1
+loss:
+  type: "smooth_l1" # options: l1, smooth_l1, cosine
+  regularization:
+    var_weight: 0.02
+    cov_weight: 0.01
+    norm_weight: 0.0
+    target_std: 1.0
+    target_norm: 1.0
+ema:
+  decay: 0.996
+  final_decay: 0.9998
+  anneal: "cosine"
+positional_encoding: "3d_rope"
+part_aware:
+  enabled: false
+  splits: 4

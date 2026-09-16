@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use GaitJEPA in your research, please cite our IJCB 2026 paper."
+title: "GaitJEPA: How far can we go with JEPA on binary silhouettes for gait recognition?"
+authors:
+  - family-names: "Marin-Jimenez"
+    given-names: "Manuel J."
+    orcid: "https://orcid.org/0000-0002-3904-4509"
+  - family-names: "Jimenez-Velasco"
+    given-names: "Isabel"
+  - family-names: "Munoz-Salinas"
+    given-names: "Rafael"
+conference:
+  name: "IEEE International Joint Conference on Biometrics (IJCB)"
+  year: 2026
+date-released: 2026-09-16
+url: "https://github.com/AVAuco/gaitjepa"
+repository-code: "https://github.com/AVAuco/gaitjepa"
+license: "MIT"
+keywords:
+  - "gait recognition"
+  - "self-supervised learning"
+  - "joint-embedding predictive architecture"
+  - "biometrics"
+  - "computer vision"
