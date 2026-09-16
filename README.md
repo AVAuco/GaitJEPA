@@ -65,6 +65,18 @@ pip install .
 python examples/extract_embeddings.py
 ```
 
+### Download Pretrained Weights
+Pretrained encoder weights (epoch 50 on GaitLU-1M, 31.2 MB) are distributed via [GitHub Releases](https://github.com/AVAuco/GaitJEPA/releases/tag/v0.1.0):
+
+```bash
+# Create weights directory and download the checkpoint
+mkdir -p weights
+wget https://github.com/AVAuco/GaitJEPA/releases/download/v0.1.0/gaitjepa_ijcb2026_encoder.pth -O weights/gaitjepa_ijcb2026_encoder.pth
+
+# (Optional) Verify SHA-256 checksum
+echo "2b90c9adc7167bd7f9f3d238b7df6b6f52182f0fac6d2cd91ec484874d13d665  weights/gaitjepa_ijcb2026_encoder.pth" | sha256sum -c
+
+
 ## 📬 Contact
 
 For questions about the paper or academic collaborations, please contact the authors at [https://www.uco.es/investiga/grupos/ava/members/](https://www.uco.es/investiga/grupos/ava/members/).
