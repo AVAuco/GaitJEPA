@@ -56,14 +56,6 @@
 
 ---
 
-## Known Discrepancies & Historical Context
-
-As detailed in `provenance/checkpoint.json`:
-1. **Schedule**: The source checkpoint (`epoch_0050.pth`) is epoch 50 of a configured 500-epoch schedule. The paper text notes 50 epochs.
-2. **Frame Stride**: The training configuration uses `frames_skip_num: 4` (sampling 1 frame every 5 raw frames).
-3. **Artifact Size**: The raw checkpoint contains training branches (EMA teacher, JEPA predictor, dynamics model, optimizer state) totaling 146.1 MB. The inference release extracts only the 95 parameters/buffers of the `online_encoder`, reducing weight size to 31.2 MB.
-
----
 
 ## Ethical & Privacy Considerations
 
